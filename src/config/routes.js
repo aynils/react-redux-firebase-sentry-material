@@ -1,6 +1,4 @@
 import Authentication from '../components/Authentication/Authentication';
-import Files from '../components/Files/Files';
-import Transcripts from '../components/Transcripts/Transcripts';
 import Dashboard from '../components/Dashboard/Dashboard';
 
 // Add routes here.
