@@ -17,9 +17,9 @@ const Layout = (props) => {
     const firebase = useFirebase()
 
     useEffect(() => {
-        if (verificationEmailSent || profile.isEmailVerified) {
+        if (verificationEmailSent || profile?.isEmailVerified) {
             dispatch(setBannerDisplay(false))
-        } else if (!profile.isEmailVerified) {
+        } else if (!profile?.isEmailVerified) {
             dispatch(displayBanner(
                 {
                     message: 'Verify your email address and start your free trial.',
