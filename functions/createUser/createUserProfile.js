@@ -7,8 +7,6 @@ DEFAULT_STARTING_USER_CREDITS = 10
 
 
 exports.createUserProfile = functions.auth.user().onCreate((user) => {
-    console.log('user',user)
-    console.log('userId',user.uid)
     firebase
         .firestore()
         .collection('userProfiles')
