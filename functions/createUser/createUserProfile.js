@@ -16,7 +16,6 @@ exports.createUserProfile = functions.auth.user().onCreate((user) => {
         .set({
             email: user.email,
             userId: user.uid,
-            credits: DEFAULT_STARTING_USER_CREDITS,
         })
         .then(() => console.log('createUserProfile DONE'))
         .catch((error) => console.error(error))
