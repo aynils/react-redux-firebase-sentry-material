@@ -1,0 +1,24 @@
+{
+  "hi": "Hi",
+  "greetings": {
+    "p_1": "I'm so glad to see you here!",
+    "p_2": "My name is Seraphin and I created this app to share my adventures with my family and friends.",
+    "p_3": "I wanted to give an easy view on where I was and what I saw.",
+    "p_4": "This app is very new and you're one of the first users. So, please let me know what you think and how I can improve this app to make it useful to you.",
+    "p_5": "Follow me on twitter @itermeum to be the first to know about new features!"
+  },
+  "steps": {
+    "1": {
+      "title": "Create a map",
+      "description": "Go to \"My Maps\" and click on \"Add a map\" to create your first map."
+    },
+    "2": {
+      "title": "Add an adventure",
+      "description": "Click on your map and click anywhere on the map to add your first adventure."
+    },
+    "3": {
+      "title": "Share your map",
+      "description": "Click on \"Share this map\" and send the link to your friends and family to share your adventures."
+    }
+  }
+}

@@ -10,28 +10,30 @@ import Dashboard from '../components/Dashboard/Dashboard';
 // The code is running on the client side and by consequent accessible.
 
 const routes = {
-  default: {
-    path: '/dashboard',
-  },
-  authentication: {
-    login: {
-      name: 'Login',
-      path: '/login',
-      component: Authentication,
-      minimalLayout: true,
-
+    default: {
+        path: '/dashboard',
     },
-  },
-  protected: [
-    {
-      name: 'Dashboard',
-      path: '/dashboard',
-      component: Dashboard,
-      minimalLayout: false,
-    }
-  ],
-  public: [],
-  admin: [],
+    authentication: {
+        login: {
+            name: 'login',
+            path: '/login',
+            component: Authentication,
+            minimalLayout: true,
+            inNav: false
+
+        },
+    },
+    protected: [
+        {
+            name: 'dashboard',
+            path: '/dashboard',
+            component: Dashboard,
+            minimalLayout: false,
+            inNav: true
+        }
+    ],
+    public: [],
+    admin: [],
 };
 
 export default routes;

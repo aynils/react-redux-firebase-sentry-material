@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,6 +16,7 @@ import {
     authFail, authStart, authSuccess, setHasAccount,
 } from '../authenticationSlice';
 import {FirebaseAuthScreen} from '../../Firebase/FirebaseAuthScreen';
+import {useTranslation} from "react-i18next"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,17 +57,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signin() {
-    const [fields, setFields] = useState({
+    const {t} = useTranslation('signin', {useSuspense: false});
+
+    const [fields, setFields] = useState({});
+    const classes = useStyles();
+    const dispatch = useDispatch();
+    const hasAccount = useSelector((state) => state.authentication.hasAccount);
+    const loading = useSelector((state) => state.authentication.loading);
+    const error = useSelector((state) => state.authentication.error);
+    const firebase = useFirebase();
+
+    useEffect(()=>{
+        setFields(
+            {
         email: {
             variant: 'outlined',
             margin: 'normal',
             required: true,
             fullWidth: true,
             id: 'email',
-            label: 'Email Address',
+            label: t('email_address'),
             name: 'email',
             autoComplete: 'email',
-            autoFocus: true,
             value: '',
         },
         password: {
@@ -75,7 +87,7 @@ export default function Signin() {
             required: true,
             fullWidth: true,
             name: 'password',
-            label: 'Password',
+            label: t('password'),
             type: 'password',
             id: 'password',
             autoComplete: 'current-password',
@@ -88,17 +100,13 @@ export default function Signin() {
             required: true,
             fullWidth: true,
             id: 'nickname',
-            label: 'Name or Nickname',
-            autoFocus: true,
+            label: t('name'),
             value: ''
         }
-    });
-    const classes = useStyles();
-    const dispatch = useDispatch();
-    const hasAccount = useSelector((state) => state.authentication.hasAccount);
-    const loading = useSelector((state) => state.authentication.loading);
-    const error = useSelector((state) => state.authentication.error);
-    const firebase = useFirebase();
+    }
+        )
+    },[t])
+
 
     const signupEmail = (email, password, nickname) => {
         dispatch(authStart());
@@ -107,10 +115,10 @@ export default function Signin() {
             .createUserWithEmailAndPassword(email, password)
             .then(async (response) => {
                 const {user} = response;
-                user.updateProfile({
+                await user.updateProfile({
                     displayName: nickname,
                 });
-
+                window.plausible('Signup')
                 dispatch(authSuccess());
             })
             .catch((error) => {
@@ -165,7 +173,7 @@ export default function Signin() {
                     <LockOutlinedIcon/>
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    {hasAccount ? 'Sign In' : 'Sign Up'}
+                    {hasAccount ? t('signin') : t('signup')}
                 </Typography>
                 <form
                     className={classes.form}
@@ -203,7 +211,7 @@ export default function Signin() {
                             className={classes.submit}
                             disabled={loading}
                         >
-                            {hasAccount ? 'Sign In' : 'Sign Up'}
+                            {hasAccount ? t('signin') : t('signup')}
                         </Button>
                         {loading && (
                             <CircularProgress size={24} className={classes.buttonProgress}/>
@@ -213,7 +221,7 @@ export default function Signin() {
                         <Grid item xs>
                             {hasAccount && (
                                 <Link href="# " variant="body2">
-                                    Forgot password?
+                                    {t('forgot_password')}
                                 </Link>
                             )}
                         </Grid>
@@ -225,8 +233,8 @@ export default function Signin() {
                                 variant="body2"
                             >
                                 {hasAccount
-                                    ? 'Don\'t have an account? Sign Up'
-                                    : 'Already have an account? Sign in'}
+                                    ? t('dont_have_an_account')
+                                    : t('already_have_an_account')}
                             </Link>
                         </Grid>
                     </Grid>

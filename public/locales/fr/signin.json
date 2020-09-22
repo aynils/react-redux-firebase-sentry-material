@@ -1,0 +1,11 @@
+{
+  "signin": "Connexion",
+  "signup": "Inscription",
+  "name": "Nom ou pseudo",
+  "email_address": "Adresse courriel",
+  "password": "Mot de passe",
+  "already_have_an_account": "Déjà inscrit·e? Connexion",
+  "dont_have_an_account": "Pas encore inscrit? Inscription",
+  "google_signin":"Connexion avec Google",
+  "forgot_password": "Mot de passe oublié?"
+}

@@ -9,6 +9,7 @@ import Avatar from "@material-ui/core/Avatar"
 
 import {useSelector} from "react-redux"
 import {makeStyles} from "@material-ui/core/styles"
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     number: {
@@ -26,77 +27,78 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
 
     const classes = useStyles()
+    const {t} = useTranslation('dashboard', {useSuspense: false});
 
     const nickname = useSelector((state) => state.user.profile?.nickname);
 
     return (
-                <Grid container spacing={2} className={classes.root}>
+        <Grid container spacing={2} className={classes.root}>
 
-                    <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Typography component="p" variant="subtitle1" color="secondary">
-                                    This is a card
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+            <Grid item xs={12}>
+                <Card>
+                    <CardContent>
+                        <Typography component="p" variant="subtitle1" color="secondary">
+                            {t("text_1")}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
 
-                    <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Typography component="h2" variant="h2">
-                                    Hi {nickname}!
-                                </Typography>
-                                <br/>
-                                <Typography component="p" variant="body1">
-                                    We're glad to see you here!
-                                    <br/> <br/>
-                                    Start building your own app.
-                                </Typography>
-                                <br/>
+            <Grid item xs={12}>
+                <Card>
+                    <CardContent>
+                        <Typography component="h2" variant="h2">
+                            {t("hi")} {nickname}!
+                        </Typography>
+                        <br/>
+                        <Typography component="p" variant="body1">
+                            {t("text_2")}
+                            <br/> <br/>
+                            {t("text_3")}
+                        </Typography>
+                        <br/>
 
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} lg={6}>
-                        <Card>
-                            <CardHeader
-                                avatar={<Avatar className={classes.number}>
-                                    1
-                                </Avatar>}
-                                title="Upload"
-                                titleTypographyProps={{variant: "h3"}}
-                            />
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+                <Card className={classes.card}>
+                    <CardHeader
+                        avatar={<Avatar className={classes.number}>
+                            1
+                        </Avatar>}
+                        title={t("steps.1.title")}
+                        titleTypographyProps={{variant: "h3"}}
+                    />
 
 
-                            <CardContent>
-                                <Typography component="p" variant="body1">
-                                    Do one thing
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                    <CardContent>
+                        <Typography component="p" variant="body1">
+                            {t("steps.1.description")}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
 
-                    <Grid item xs={12} lg={6}>
-                        <Card>
-                            <CardHeader
-                                avatar={<Avatar className={classes.number}>
-                                    2
-                                </Avatar>}
-                                title="Read the result"
-                                titleTypographyProps={{variant: "h3"}}
+            <Grid item xs={12} lg={6}>
+                <Card className={classes.card}>
+                    <CardHeader
+                        avatar={<Avatar className={classes.number}>
+                            2
+                        </Avatar>}
+                        title={t("steps.2.title")}
+                        titleTypographyProps={{variant: "h3"}}
 
-                            />
-                            <CardContent>
-                                <Typography component="p" variant="body1">
-                                    Do another one
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                    />
+                    <CardContent>
+                        <Typography component="p" variant="body1">
+                            {t("steps.2.description")}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
 
-                </Grid>
+        </Grid>
 
     );
 }

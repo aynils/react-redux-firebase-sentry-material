@@ -1,0 +1,10 @@
+{
+  "verify_email": {
+    "message": "Verify your email address to start sharing your adventures.",
+    "button": "Send verification email"
+  },
+  "navbar": {
+    "home": "Home",
+    "my_maps": "My Maps"
+  }
+}

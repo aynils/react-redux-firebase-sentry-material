@@ -1,0 +1,10 @@
+{
+  "verify_email": {
+    "message": "Valides ton addresse courriel pour commencer à partager tes adventures.",
+    "button": "Envoyer courriel"
+  },
+  "navbar": {
+    "home": "Accueil",
+    "my_maps": "Mes cartes"
+  }
+}

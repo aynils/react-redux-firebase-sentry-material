@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import InputIcon from '@material-ui/icons/Input';
 import {makeStyles} from '@material-ui/styles';
 import {
-    AppBar, Hidden, IconButton, Toolbar, Button, withStyles,
+    AppBar, Hidden, IconButton, Toolbar, withStyles,
 } from '@material-ui/core';
 import {useDispatch} from 'react-redux';
 import {NavLink} from 'react-router-dom';
@@ -15,6 +15,16 @@ import {app} from '../../../config/config';
 import routes from '../../../config/routes';
 import Logo from '../../Logo/Logo';
 import Loading from "../Feedback/Loading/Loading"
+import LanguageIcon from '@material-ui/icons/Translate';
+import Button from '@material-ui/core/Button';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import NoSsr from "@material-ui/core/NoSsr"
+import {LANGUAGES_LABELS} from "../../../config/config"
+
+import {useTranslation} from "react-i18next"
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +39,13 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(1),
+    },
+    language: {
+        margin: theme.spacing(0, 0.5, 0, 1),
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+            display: 'block',
+        },
     },
 }));
 
@@ -46,11 +63,71 @@ const TopMenu = ({onSidebarOpen, minimalLayout}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const firebase = useFirebase();
+    const {t, i18n} = useTranslation('dashboard', {useSuspense: false});
+    const userLanguage = i18n.language
+    const [languageMenu, setLanguageMenu] = React.useState(null);
+
+    const handleLanguageIconClick = (event) => {
+        setLanguageMenu(event.currentTarget);
+    };
+
+    const handleLanguageMenuClose = (event) => {
+        if (event.currentTarget.nodeName === 'A') {
+            document.cookie = `userLanguage=noDefault;path=/;max-age=31536000`;
+        }
+        setLanguageMenu(null);
+    };
+
+    const handleLanguageChange = (languageCode) => {
+        i18n.changeLanguage(languageCode)
+        setLanguageMenu(null);
+    }
 
     const handleLogout = (event) => {
         event.preventDefault();
         dispatch(logout(firebase));
     };
+
+    const languageButton = <>
+        <Button
+            color="inherit"
+            aria-owns={languageMenu ? 'language-menu' : undefined}
+            aria-haspopup="true"
+            aria-label={t('changeLanguage')}
+            onClick={handleLanguageIconClick}
+            data-ga-event-category="header"
+            data-ga-event-action="language"
+        >
+            <LanguageIcon/>
+            <span className={classes.language}>
+                {LANGUAGES_LABELS.filter((language) => language.code === userLanguage)[0]?.text}
+              </span>
+            <ExpandMoreIcon fontSize="small"/>
+        </Button>
+        <NoSsr defer>
+            <Menu
+                id="language-menu"
+                anchorEl={languageMenu}
+                open={Boolean(languageMenu)}
+                onClose={handleLanguageMenuClose}
+            >
+                {LANGUAGES_LABELS.map((language) => (
+                    <MenuItem
+                        component="a"
+                        data-no-link="true"
+                        key={language.code}
+                        selected={userLanguage === language.code}
+                        onClick={() => handleLanguageChange(language.code)}
+                        lang={language.code}
+                        hrefLang={language.code}
+                    >
+                        {language.text}
+                    </MenuItem>
+                ))}
+            </Menu>
+        </NoSsr>
+    </>
+
     let layout;
     if (minimalLayout) {
         layout = (
@@ -65,7 +142,7 @@ const TopMenu = ({onSidebarOpen, minimalLayout}) => {
                         </Button>
                     </NavLink>
                     <div className={classes.flexGrow}/>
-
+                    {languageButton}
                 </Toolbar>
             </AppBar>
         );
@@ -82,6 +159,7 @@ const TopMenu = ({onSidebarOpen, minimalLayout}) => {
                         </LogoButton>
                     </NavLink>
                     <div className={classes.flexGrow}/>
+                    {languageButton}
                     <Hidden mdDown>
                         <IconButton
                             className={classes.signOutButton}
