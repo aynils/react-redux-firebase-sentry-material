@@ -51,6 +51,7 @@ To add a new page in the app, follow these steps:
 
 ### Style
 To change the global styling and theme options (color palette, typography,...), update the files in `src/theme`
+**NOTE:** You'll find more about the theming options in [Material-UI's](https://material-ui.com/customization/theming/) documentation. 
 
 # License
 See LICENSE.md
