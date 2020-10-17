@@ -1,8 +1,12 @@
 
-# Intro 
+# Introduction
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-We decided to publish the template we use to build many different apps and MVP. This template allows us to gain countless hours on the start of a new React project. If you find it usefulle, please consider staring the repos. If you find a bug, please open an issue and we'll look into it. Or even better: submit a Pull Request with a fix :-).
+We decided to publish the template we use to build many different apps and MVP. This template allows us to gain countless hours on the start of a new React project. 
+
+If you find it useful, please consider staring the repos. 
+
+If you find a bug, please open an issue and we'll look into it. Or even better: submit a Pull Request with a fix :-).
 
 # What's included? 
 The following tools and librairies are included:
@@ -44,3 +48,6 @@ To add a new page in the app, follow these steps:
 3. If you choose to create a component with a global scope slice,update `src/app/store.js` to include the new store slice in the global store
 4. Update `src/config/routes.js` to add a new route to match your preferences. 
 5. Look at your browser: the new page appeared in the menu automagically. 
+
+# Licence
+See LICENCE.md
