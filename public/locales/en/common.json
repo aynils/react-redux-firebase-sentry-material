@@ -5,6 +5,7 @@
   },
   "navbar": {
     "home": "Home",
-    "my_maps": "My Maps"
+    "my_maps": "My Maps",
+    "dashboard": "Home"
   }
 }
