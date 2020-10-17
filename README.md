@@ -22,8 +22,11 @@ The following tools and librairies are included:
 # How to start
 ## Prerequisites
 ### Firebase
-This projet relies on Firebase for Users authentication. Before you start, you'll need to create a Firebase project.
-then, create a webb app in this project and activate authentication by email and google. 
+This projet relies on Firebase for Users authentication. Before you start, you'll need to: 
+1. Create a Firebase project.
+2. Create a webb app in this project.
+3. Enable Firebase hosting
+4. Activate authentication by email and Google
 
 ### Sentry
 This projcet relies on Sentry for errors reporting. Before you start, you'll need to create a Sentry project.
@@ -50,8 +53,9 @@ To add a new page in the app, follow these steps:
 5. Look at your browser: the new page appeared in the menu automagically. 
 
 ### Style
-To change the global styling and theme options (color palette, typography,...), update the files in `src/theme`
-**NOTE:** You'll find more about the theming options in [Material-UI's](https://material-ui.com/customization/theming/) documentation. 
+To change the global styling and theme options (color palette, typography,...), update the files in `src/theme`  
+
+**Note:** You'll find more about the theming options in [Material-UI's](https://material-ui.com/customization/theming/) documentation. 
 
 # License
 See LICENSE.md
