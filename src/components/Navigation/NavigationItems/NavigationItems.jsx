@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import {List} from '@material-ui/core';
 import NavigationItem from './NavigationItem/NavigationItem';
 import routes from '../../../config/routes';
-
+import {useTranslation} from 'react-i18next';
 
 const NavigationItems = () => {
     const isLoggedIn = useSelector((state) => state.authentication.isLoggedIn);
