@@ -17,16 +17,36 @@ The following tools and librairies are included:
 - [Sentry SDK](https://sentry.io) - Automated errors logging. 
 - [React-i18n](https://react.i18next.com/) - Translations. Default to French and English. 
 - [Material-ui](https://material-ui.com/) - Design kit for React based on Google's Material design guidelines.
+- [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) - CI/CD pipeline
 
 
 # How to start
 ## Prerequisites
 ### Firebase
-This projet relies on Firebase for Users authentication. Before you start, you'll need to: 
+This projet relies on Firebase for Users authentication. 
+
+Before you start, you'll need to: 
 1. Create a Firebase project.
 2. Create a webb app in this project.
 3. Enable Firebase hosting
 4. Activate authentication by email and Google
+5. Install and login to the Firebase CLI following [Firebase documentation](https://firebase.google.com/docs/cli)
+6. From your project's root, run `firebase init` 
+    During the init process, select the following options:
+    - Which Firebase CLI features do you want to set up for this folder? **Firestore, Fuctions, Hosting**
+    - Use an existing project - select the project you created in step 1
+    - What file should be used for Firestore Rules? **firestore.rules**
+    - File firestore.rules already exists. Do you want to overwrite it with the Firestore Rules from the Firebase Console? **No**
+    - What file should be used for Firestore indexes? **firestore.indexes.json**
+    - File firestore.indexes.json already exists. Do you want to overwrite it with the Firestore Indexes from the Firebase Console? **No**
+    - What language would you like to use to write Cloud Functions? **JavaScript**
+    - Do you want to use ESLint to catch probable bugs and enforce style? **No**
+    - File functions/package.json already exists. Overwrite? **No**
+    - File functions/.gitignore already exists. Overwrite? **No**
+    - Do you want to install dependencies with npm now? **Yes**
+    - What do you want to use as your public directory? **build**
+    - Configure as a single-page app (rewrite all urls to /index.html)? **Yes**
+    - File public/index.html already exists. Overwrite? **No**
 
 ### Sentry
 This projcet relies on Sentry for errors reporting. Before you start, you'll need to create a Sentry project.
@@ -66,6 +86,20 @@ To add a new language:
 1. Add a new folder and copy the content of one of the already existing folders.
 2. Translate the content of every file in your new folder.
 3. Add your language to the array `LANGUAGES_LABELS` in `src/config/config.js`. The format is `{code: 'en', text: 'English'}`
+
+### Database
+By default, read and write are forbidden for all collections of the Firestore database.   
+Security rules are defined in `firestore.rules`. 
+
+**Note:** You'll find more about the Firestore security rules in [Firebase documentation](https://firebase.google.com/docs/firestore/security/get-started)
+
+### Deploy
+This project is setup to use a Github Action defined in `.github/workflows.firebase.yaml` to deploy automatically to Firebase, when pushing to the branch `master`.
+
+To allow GitHub to deploy your Firebase project, you'll need to add the Firebase token as a secret in your repository with the name `FIREBASE_TOKEN`.  
+
+To get this key: 
+1. From your project's root, run ``
 
 # License
 See LICENSE.md
