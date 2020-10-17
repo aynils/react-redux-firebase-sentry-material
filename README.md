@@ -9,7 +9,7 @@ This projet relies on Firebase for Users authentication. Before you start, you'l
 then, create a webb app in this project and activate authentication by email and google. 
 
 ### Sentry
-This projet relies on Sentry for errors reporting. Before you start, you'll need to create a Sentry project.
+This projcet relies on Sentry for errors reporting. Before you start, you'll need to create a Sentry project.
 
 ## Template
 Copy this project as a template to start working on your own project
