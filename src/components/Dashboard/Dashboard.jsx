@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         margin: "auto",
-        width: "99%"
+        width: "99%",
     }
 }))
 
@@ -33,12 +33,11 @@ export default function Dashboard() {
 
     return (
         <Grid container spacing={2} className={classes.root}>
-
             <Grid item xs={12}>
                 <Card>
                     <CardContent>
                         <Typography component="p" variant="subtitle1" color="secondary">
-                            {t("text_1")}
+                            {t("warning")}
                         </Typography>
                     </CardContent>
                 </Card>
@@ -52,9 +51,9 @@ export default function Dashboard() {
                         </Typography>
                         <br/>
                         <Typography component="p" variant="body1">
-                            {t("text_2")}
+                            {t("greetings.p_2")}
                             <br/> <br/>
-                            {t("text_3")}
+                            {t("greetings.p_3")}
                         </Typography>
                         <br/>
 
