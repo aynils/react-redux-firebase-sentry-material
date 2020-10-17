@@ -9,6 +9,9 @@ const theme = createMuiTheme({
     appBar: 1200,
     drawer: 1100,
   },
+    shape: {
+    borderRadius: 3,
+  },
 });
 
 export default theme;
