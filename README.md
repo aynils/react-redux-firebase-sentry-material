@@ -49,5 +49,5 @@ To add a new page in the app, follow these steps:
 4. Update `src/config/routes.js` to add a new route to match your preferences. 
 5. Look at your browser: the new page appeared in the menu automagically. 
 
-# Licence
-See LICENCE.md
+# License
+See LICENSE.md
