@@ -19,7 +19,8 @@ import {reduxFirebase as rfConfig, sentryUrl} from './config/config';
 
 import {verifyAuth} from './components/Authentication/authenticationSlice';
 
-
+// Translations
+import './i18n';
 
 initFirebase();
 
