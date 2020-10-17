@@ -22,7 +22,7 @@ Copy this project as a template to start working on your own project
 4. Open in the brower: [http://localhost:3000](http://localhost:3000)
 
 ## Develop
-Hot reload is activated on hte developement server. Every change saved in the code will force an app reload and change will be available immediately.
+Hot reload is activated on the developement server. Every change saved in the code will force an app reload and change will be available immediately.
 
 ### Add a new page
 To add a new page in the app, follow these steps:
