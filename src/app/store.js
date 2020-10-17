@@ -9,15 +9,7 @@ import userReducer from '../components/User/userSlice.js';
 // Every reducer must be included here to be accessible by the useSelector hook
 const store = configureStore({
     middleware: getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: [
-                actionTypes.LOGIN,
-                "feedback/setBannerDisplay",
-                "feedback/setBannerContent",
-                "authentication/authUser",
-                "user/getProfile",
-                "user/updateProfile"]
-        }
+        serializableCheck: false
     }),
     reducer: {
         authentication: authenticationReducer,
