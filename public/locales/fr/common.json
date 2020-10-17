@@ -5,6 +5,7 @@
   },
   "navbar": {
     "home": "Accueil",
-    "my_maps": "Mes cartes"
+    "my_maps": "Mes cartes",
+    "dashboard": "Accueil"
   }
 }
