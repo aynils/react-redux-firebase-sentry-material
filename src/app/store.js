@@ -1,6 +1,6 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 
-import {firebaseReducer, actionTypes} from 'react-redux-firebase';
+import {firebaseReducer} from 'react-redux-firebase';
 import authenticationReducer from '../components/Authentication/authenticationSlice.js';
 import templateReducer from '../components/Template/templateSlice.js';
 import feedbackReducer from '../components/Layout/Feedback/feedbackSlice.js';
