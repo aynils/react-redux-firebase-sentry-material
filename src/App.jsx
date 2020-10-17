@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Layout from './components/Layout/Layout';
 import './App.css';
 import { hasAccountCheckState } from './components/Authentication/authenticationSlice';
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+            <CssBaseline />
       <Switch>
         ...
         {publicRoutes}
