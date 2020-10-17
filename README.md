@@ -57,5 +57,13 @@ To change the global styling and theme options (color palette, typography,...), 
 
 **Note:** You'll find more about the theming options in [Material-UI's](https://material-ui.com/customization/theming/) documentation. 
 
+### Translations
+Translation files are located in `public/locales/` and organised in subfolders corresponding to the language code (e.g.: fr, en).  
+
+To add a new language:
+1. Add a new folder and copy the content of one of the already existing folders.
+2. Translate the content of every file in your new folder.
+3. Add your language to the array `LANGUAGES_LABELS` in `src/config/config.js`. The format is `{code: 'en', text: 'English'}`
+
 # License
 See LICENSE.md
