@@ -50,7 +50,9 @@ To add a new page in the app, follow these steps:
 2. Rename the new folder, files and functions to make it match you new page name
 3. If you choose to create a component with a global scope slice,update `src/app/store.js` to include the new store slice in the global store
 4. Update `src/config/routes.js` to add a new route to match your preferences. 
-5. Look at your browser: the new page appeared in the menu automagically. 
+5. Look at your browser: the new page appeared in the menu automagically.   
+
+**Note:** If your new page is to appear in the navigation menu, update the translation file for every language in `/public/locales/` by adding the reference in the `navbar` object. See *Translations* for more details about the translations. 
 
 ### Style
 To change the global styling and theme options (color palette, typography,...), update the files in `src/theme`  
