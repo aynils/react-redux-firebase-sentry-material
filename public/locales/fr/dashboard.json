@@ -1,24 +1,19 @@
 {
+  "warning": "Ce n'est pas assez contrasté pour être lu",
   "hi": "Salut",
   "greetings": {
     "p_1": "Je suis content que tu sois là!",
-    "p_2": "Mon nom est Séraphin et j'ai créé cette application pour partager mes aventures avec ma famille et mes amis.",
-    "p_3": "Je voulais leur donner une vue facile sur où je vais et ce que j'y vois.",
-    "p_4": "Cette app est toute neuve. Du coup, j'apprécierais énormément ton retour. Dis-moi ce que je peux ajouter à l'application pour qu'elle te soit utile.",
-    "p_5": "Suis moi sur Twitter @itermeum pour être au courant des nouveautés."
+    "p_2": "Mon nom est Séraphin et j'ai créé ce modele pour lancer des applications plus rapidement.",
+    "p_3": "Lorem ipsum."
   },
   "steps": {
     "1": {
-      "title": "Crée une carte",
-      "description": "Navigue vers \"Mes cartes\" et clique sur \"Créer une nouvelle carte\"."
+      "title": "Fais quelque chose",
+      "description": "Clique quelque part."
     },
     "2": {
-      "title": "Ajoute une aventure",
-      "description": "Clique sur ta carte pour l'ouvrir puis clique n'importe où sur la carte pour y ajouter ta première aventure."
-    },
-    "3": {
-      "title": "Partage ta carte",
-      "description": "Clique sur \"Partager cette carte\" et envoie le lien à tes amis et ta famille pour partager tes aventures."
+      "title": "Fais autre chose",
+      "description": "Bon amusement!"
     }
   }
 }
