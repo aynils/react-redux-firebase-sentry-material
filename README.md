@@ -33,20 +33,20 @@ Before you start, you'll need to:
 5. Install and login to the Firebase CLI following [Firebase documentation](https://firebase.google.com/docs/cli)
 6. From your project's root, run `firebase init` 
     During the init process, select the following options:
-        - Which Firebase CLI features do you want to set up for this folder? **Firestore, Fuctions, Hosting**
-        - Use an existing project - select the project you created in step 1
-        - What file should be used for Firestore Rules? **firestore.rules**
-        - File firestore.rules already exists. Do you want to overwrite it with the Firestore Rules from the Firebase Console? **No**
-        - What file should be used for Firestore indexes? **firestore.indexes.json**
-        - File firestore.indexes.json already exists. Do you want to overwrite it with the Firestore Indexes from the Firebase Console? **No**
-        - What language would you like to use to write Cloud Functions? **JavaScript**
-        - Do you want to use ESLint to catch probable bugs and enforce style? **No**
-        - File functions/package.json already exists. Overwrite? **No**
-        - File functions/.gitignore already exists. Overwrite? **No**
-        - Do you want to install dependencies with npm now? **Yes**
-        - What do you want to use as your public directory? **build**
-        - Configure as a single-page app (rewrite all urls to /index.html)? **Yes**
-        - File public/index.html already exists. Overwrite? **No**
+    - Which Firebase CLI features do you want to set up for this folder? **Firestore, Fuctions, Hosting**
+    - Use an existing project - select the project you created in step 1
+    - What file should be used for Firestore Rules? **firestore.rules**
+    - File firestore.rules already exists. Do you want to overwrite it with the Firestore Rules from the Firebase Console? **No**
+    - What file should be used for Firestore indexes? **firestore.indexes.json**
+    - File firestore.indexes.json already exists. Do you want to overwrite it with the Firestore Indexes from the Firebase Console? **No**
+    - What language would you like to use to write Cloud Functions? **JavaScript**
+    - Do you want to use ESLint to catch probable bugs and enforce style? **No**
+    - File functions/package.json already exists. Overwrite? **No**
+    - File functions/.gitignore already exists. Overwrite? **No**
+    - Do you want to install dependencies with npm now? **Yes**
+    - What do you want to use as your public directory? **build**
+    - Configure as a single-page app (rewrite all urls to /index.html)? **Yes**
+    - File public/index.html already exists. Overwrite? **No**
 
 ### Sentry
 This projcet relies on Sentry for errors reporting. Before you start, you'll need to create a Sentry project.
@@ -55,22 +55,22 @@ This projcet relies on Sentry for errors reporting. Before you start, you'll nee
 Copy this project as a template to start working on your own project
 
 ## Run locally 
-    1. Clone your new repository locally
-    2. Install the dependencies: $`npm install`
-    3. Update the configfile located at `src/config/config.js` to add your firebase config and Sentry connection link
-    3. Run the server: $`npm start`
-    4. Open in the brower: [http://localhost:3000](http://localhost:3000)
+1. Clone your new repository locally
+2. Install the dependencies: $`npm install`
+3. Update the configfile located at `src/config/config.js` to add your firebase config and Sentry connection link
+3. Run the server: $`npm start`
+4. Open in the brower: [http://localhost:3000](http://localhost:3000)
 
 ## Develop
 Hot reload is activated on the developement server. Every change saved in the code will force an app reload and change will be available immediately.
 
 ### New page
 To add a new page in the app, follow these steps:
-    1. Duplicate the `src/Template` or `src/Dashboard` folder. Template is a component using a state slice, Dashboard is a simple component with no global state. 
-    2. Rename the new folder, files and functions to make it match you new page name
-    3. If you choose to create a component with a global scope slice,update `src/app/store.js` to include the new store slice in the global store
-    4. Update `src/config/routes.js` to add a new route to match your preferences. 
-    5. Look at your browser: the new page appeared in the menu automagically.   
+1. Duplicate the `src/Template` or `src/Dashboard` folder. Template is a component using a state slice, Dashboard is a simple component with no global state. 
+2. Rename the new folder, files and functions to make it match you new page name
+3. If you choose to create a component with a global scope slice,update `src/app/store.js` to include the new store slice in the global store
+4. Update `src/config/routes.js` to add a new route to match your preferences. 
+5. Look at your browser: the new page appeared in the menu automagically.   
 
 **Note:** If your new page is to appear in the navigation menu, update the translation file for every language in `/public/locales/` by adding the reference in the `navbar` object. See *Translations* for more details about the translations. 
 
@@ -83,9 +83,9 @@ To change the global styling and theme options (color palette, typography,...), 
 Translation files are located in `public/locales/` and organised in subfolders corresponding to the language code (e.g.: fr, en).  
 
 To add a new language:
-    1. Add a new folder and copy the content of one of the already existing folders.
-    2. Translate the content of every file in your new folder.
-    3. Add your language to the array `LANGUAGES_LABELS` in `src/config/config.js`. The format is `{code: 'en', text: 'English'}`
+1. Add a new folder and copy the content of one of the already existing folders.
+2. Translate the content of every file in your new folder.
+3. Add your language to the array `LANGUAGES_LABELS` in `src/config/config.js`. The format is `{code: 'en', text: 'English'}`
 
 ### Database
 By default, read and write are forbidden for all collections of the Firestore database.   
@@ -97,8 +97,8 @@ Security rules are defined in `firestore.rules`.
 This project is setup to use a Github Action defined in `.github/workflows.firebase.yaml` to deploy automatically to Firebase, when pushing to the branch `master`.
 
 To allow GitHub to deploy your Firebase project, you'll need to add the Firebase token as a secret in your repository with the name `FIREBASE_TOKEN`.  
-    1. From your project's root, run `firebase login:ci`
-    2. Save the token in your repos' secrets with the name `FIREBASE_TOKEN`
+1. From your project's root, run `firebase login:ci`
+2. Save the token in your repos' secrets with the name `FIREBASE_TOKEN`
 
 # License
 See LICENSE.md
