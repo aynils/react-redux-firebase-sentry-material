@@ -1,6 +1,6 @@
 {
-  "short_name": "Transcribe",
-  "name": "Transcribe speeches in minutes",
+  "short_name": "AppShort",
+  "name": "Long app Name",
   "icons": [
     {
       "src": "acme.svg",
