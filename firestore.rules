@@ -1,6 +1,14 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+            match /userProfiles/{userProfile}{
+        allow create: if false;
+				allow read: if request.auth != null &&
+            request.auth.uid == resource.data.userId
+        allow delete: if false;
+        allow update: if request.resource.data.diff(request.resource.data).affectedKeys().hasOnly(["nickname","isEmailVerified"]) &&
+        			request.resource.data.userId == request.auth.uid ;
+  }
     match /{document=**} {
       allow read, write: if false;
     }
