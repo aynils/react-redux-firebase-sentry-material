@@ -7,10 +7,7 @@ export const userSlice = createSlice({
         verificationEmailSent: false
     },
     reducers: {
-        incrementValue: (state) => {
-            state.value += 1;
-        },
-        getProfile: (state, action) => {
+        setProfile: (state, action) => {
             state.profile = action.payload;
         },
         removeProfile: (state) => {
@@ -18,14 +15,14 @@ export const userSlice = createSlice({
         },
         updateProfile: (state, action) => {
             state.profile = {...state.profile, ...action.payload};
-        }        ,
+        },
         setVerificationEmailSent: (state) => {
             state.verificationEmailSent = true;
         }
     },
 });
 
-export const {getProfile, removeProfile, updateProfile,setVerificationEmailSent} = userSlice.actions;
+export const {setProfile, removeProfile, updateProfile, setVerificationEmailSent} = userSlice.actions;
 
 export const getUserProfile = (firebase) => (dispatch) => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -34,9 +31,12 @@ export const getUserProfile = (firebase) => (dispatch) => {
                 firebase
                     .firestore()
                     .collection('userProfiles')
-                    .doc(user.uid)
-                    .onSnapshot((doc) => {
-                        dispatch(getProfile(doc.data()));
+                    .where("userId", "==", user.uid)
+                    .onSnapshot(docs => {
+                        docs.forEach( doc =>
+                            dispatch(setProfile(doc.data()))
+                        )
+                        ;
                     }, (error => console.log(error)));
             }
         } else {
@@ -75,7 +75,7 @@ export const updateIsEmailVerified = (firebase) => (dispatch) => {
                     .collection('userProfiles')
                     .doc(user.uid)
                     .update({isEmailVerified: user.emailVerified})
-                    .catch(error => console.error( error))
+                    .catch(error => console.error(error))
             }
         } else {
             dispatch(removeProfile())
