@@ -63,7 +63,7 @@ const TopMenu = ({onSidebarOpen, minimalLayout}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const firebase = useFirebase();
-    const {t, i18n} = useTranslation('dashboard', {useSuspense: false});
+    const {t, i18n} = useTranslation('dashboard');
     const userLanguage = i18n.language
     const [languageMenu, setLanguageMenu] = React.useState(null);
 

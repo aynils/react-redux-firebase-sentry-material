@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signin() {
-    const {t} = useTranslation('signin', {useSuspense: false});
+    const {t} = useTranslation('signin');
 
     const [fields, setFields] = useState({});
     const classes = useStyles();

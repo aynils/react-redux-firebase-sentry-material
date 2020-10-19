@@ -9,7 +9,7 @@ const NavigationItems = () => {
     const isLoggedIn = useSelector((state) => state.authentication.isLoggedIn);
     const protectedRoutes = isLoggedIn ? routes.protected : [];
     const allRoutes = [...protectedRoutes, ...routes.public];
-    const {t} = useTranslation('common', {useSuspense: false});
+    const {t} = useTranslation('common');
 
     return (
         <List>

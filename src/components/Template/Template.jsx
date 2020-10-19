@@ -50,7 +50,7 @@ export default function Template() {
 
     // useTranslation hooks finds the translation in /public/locals/{lang}/{fileName}.json
     // {fileName} is the first argument passed to useTranslation. !Do not repeat the .json extension!
-    const {t} = useTranslation('template', {useSuspense: false});
+    const {t} = useTranslation('template');
 
 
     // This function is run when clicking on the form button

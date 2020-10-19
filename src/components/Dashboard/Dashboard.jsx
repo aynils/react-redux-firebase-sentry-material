@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
 
     const classes = useStyles()
-    const {t} = useTranslation('dashboard', {useSuspense: false});
+    const {t} = useTranslation('dashboard');
 
     const nickname = useSelector((state) => state.user.profile?.nickname);
 
