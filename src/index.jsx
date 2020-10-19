@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 import {BrowserRouter} from 'react-router-dom';
@@ -16,6 +16,8 @@ import store from './app/store';
 import App from './App';
 import initFirebase from './firebase';
 import {reduxFirebase as rfConfig, sentryUrl} from './config/config';
+
+import {spinner} from './components/Layout/Spinner/Spinner'
 
 import {verifyAuth} from './components/Authentication/authenticationSlice';
 
@@ -46,7 +48,9 @@ ReactDOM.render(
                     dispatch={store.dispatch}
                     createFirestoreInstance={createFirestoreInstance}
                 >
+                                        <Suspense fallback={spinner}>
                     <App/>
+                                                                </Suspense>
                 </ReactReduxFirebaseProvider>
             </BrowserRouter>
         </Provider>
